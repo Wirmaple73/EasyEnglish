@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Easy English - Learn the alphabet with ease!</title>
+
+        <meta name="author" content="Alireza Shahidi Fard">
+        <meta name="keywords" content="english,alphabet,letters,learning,tutorial">
+        <meta charset="UTF-8">
+
+        <link rel="icon" href="icon.png" type="image/x-icon">
+
+        <link href="styles/style.css" rel="stylesheet">
+		<script src="scripts/index.js" type="text/javascript"></script>
+
+        <style>
+            /*
+            @font-face {
+                font-family: "B Nazanin";
+                src: url("fonts/BNazanin.ttf");
+            }
+            */
+
+            @font-face {
+                font-family: "Trebuchet MS";
+                src: url("fonts/TrebuchetMS.ttf");
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="background-image"></div>
+        <div id="letter-container"></div>
+        <br><br>
+
+        <div class="main-section">
+            <table>
+                <tr>
+                    <td style="display: inline-block; width: 400px;">
+                        <span id="selected-letter" style="font-size: 50px;"></span><br><br>
+
+                        <audio controls id="selected-letter-audio">
+                            <source id="selected-letter-pronunciation" src="" type="audio/ogg">
+                        </audio>
+
+                        <br><br><br>
+                        <span id="selected-word" style="font-size: 30px;"></span><br><br>
+
+                        <audio controls id="selected-word-audio">
+                            <source id="selected-word-pronunciation" src="" type="audio/ogg">
+                        </audio>
+                        
+                        <br><br>
+                        <span id="selected-letter-sentence" style="display: inline-block; text-align: left; font-style: oblique;"></span>
+                    </td>
+
+                    <td>
+                        <img id="selected-word-image" width="540" src="" alt="The specified image could not be displayed.">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <span class="footer-text">Alireza Shahidi Fard</span>
+        
+        <script>
+            const targetContainer = document.getElementById("letter-container");
+
+            // Fill the letter container with letters
+            for (let i = 0; i < chars.length; i++) {
+                const anchor = document.createElement("a");
+
+                anchor.innerHTML = chars[i];
+                anchor.setAttribute("onclick", `setSelectedLetter('${chars[i]}');`);
+                anchor.setAttribute("href", "#");
+                anchor.setAttribute("class", "letter");
+
+                targetContainer.appendChild(anchor);
+                targetContainer.appendChild(document.createElement("br"));
+            }
+
+            // By default, the letter 'A' is pre-selected
+            setSelectedLetter("A");
+        </script>
+    </body>
+</html>
